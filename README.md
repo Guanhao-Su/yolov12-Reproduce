@@ -2,6 +2,13 @@
 **说明：**
 本项目的复现工作主要针对轻量化的nano模型，开源的权重也是nano规模的，可用于简单的日常任务。
 yolov12n是在COCO数据集上训练，yolov12n-obb是在DOTAv1.0数据集上训练的。
+**环境配置**
+install the ultralytics package, including all requirements, in a Python>=3.8 environment with PyTorch>=1.8.
+```
+cd yolov12-Reproduce
+pip install e . 
+```
+
 
 ## 在COCO数据集上训练yolov12-HBB模型
 将COCO数据集解压后按照如下格式放入`datasets/coco`文件夹中
@@ -90,7 +97,7 @@ python train/train12n-obb.py
 训练后的结果会保存在`yolov12-Reproduce/YOLO12-OBB/nano`文件夹中
 
 #### 推理
-使用`model.val`进行推理，设置`save_json = True`。如此在进行`model.val`推理调用函数`OBBValidator`时，如果检测到数据集为DOTA会自动执行标签合并操作，直接输出名为`predictions_merged_txt`的文件夹。
+使用`model.val`进行推理，设置`save_json = True`。如此在进行`model.val`推理调用函数`OBBValidator`时，如果检测到数据集为DOTA会自动执行标签合并操作，直接输出名为`predictions_merged_txt`的文件夹。该文件夹以及val的结果保存在`runs/obb/val/`目录中。
 ```
 # 推理命令，用于在test集上预测并将最终结果提交官网
 python train/val-obb.py
