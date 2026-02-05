@@ -2,13 +2,14 @@
 **说明：**
 本项目的复现工作主要针对轻量化的nano模型，开源的权重也是nano规模的，可用于简单的日常任务。
 yolov12n是在COCO数据集上训练，yolov12n-obb是在DOTAv1.0数据集上训练的。
-仓库中开源的`yolov12n-obb.pt`的输出类别顺序为
+仓库中开源的`yolo12n-obb.pt`的输出类别顺序为
 ```
 'plane', 'baseball-diamond', 'bridge', 'ground-track-field',
 'small-vehicle', 'large-vehicle', 'ship', 'tennis-court',
 'basketball-court', 'storage-tank', 'soccer-ball-field',
 'roundabout', 'harbor', 'swimming-pool', 'helicopter'
 ```
+该训练权重的在DOTA数据集上的mAP(test)50为**80.0%**，超过`yolo11n-obb`的官方指标78.4%和`yolo26n-obb`的官方指标78.9%。
 
 **环境配置**
 install the ultralytics package, including all requirements, in a Python>=3.8 environment with PyTorch>=1.8.
